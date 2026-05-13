@@ -156,12 +156,6 @@ window.resetPassword = async function() {
 
     }
 
-    <input type="text" id="signupUsername" placeholder="Username"><br><br>
-
-<input type="email" id="signupEmail" placeholder="Email"><br><br>
-
-<input type="password" id="signupPassword" placeholder="Password"><br><br>
-
-    
+   
 
 };
