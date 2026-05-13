@@ -21,7 +21,13 @@ function signup() {
         return;
     }
 
-    users.push({ username, password });
+    users.push({
+    username,
+    password,
+    emoji: selectedEmoji,
+    membership: "Dreamer"
+});
+    
     localStorage.setItem("users", JSON.stringify(users));
 
     alert("Account created! Please login.");
