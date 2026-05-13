@@ -16,9 +16,20 @@
 		Join the journey 🌸
 	</div>
 
-	<a href="Log In.html" class="profile-button"></a>
-		☺️
+	<a href="login.html" class="profile-button" id="profileButton">
+    👤
+</a>
   </div>
+
+	<div class="profile-dropdown" id="profileDropdown">
+
+    <p id="membershipText">Membership: Dreamer</p>
+
+    <a href="#">Change Password</a>
+
+    <button onclick="logout()">Logout</button>
+
+</div>
 	
 </nav>
 
@@ -87,6 +98,21 @@
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);
   const analytics = getAnalytics(app);
+</script>
+
+
+	<script>
+    const currentUser = localStorage.getItem("loggedInUser");
+    const users = JSON.parse(localStorage.getItem("users")) || [];
+
+    const foundUser = users.find(
+        user => user.username === currentUser
+    );
+
+    if (foundUser) {
+        document.getElementById("profileButton").innerHTML =
+            foundUser.emoji;
+    }
 </script>
 	
 </body>
