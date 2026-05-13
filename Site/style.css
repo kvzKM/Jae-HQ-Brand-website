@@ -6,7 +6,7 @@ html {
 }
 
 :root {
-	--Main-bg: #f5dfec;
+	--main-bg: #f5dfec;
 	--primary: #d6b3ff;
 	--secondary: #ffcce6;
 	--accent: #cceeff;
@@ -377,7 +377,7 @@ nav {
 }
 
 .comment strong {
-	color: var (--primary);
+	color: var(--primary);
 	display: block;
 	margin-bottom: 5px;
 }
