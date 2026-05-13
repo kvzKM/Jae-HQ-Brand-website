@@ -2,7 +2,17 @@
 
 <html>
 <!--------Navigation---------->
-<nav>
+
+
+
+<head>
+	<meta charset="UTF-8">
+<title>Jae Hq</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+	<nav>
   <div class="nav-left">	
     <a href="index.html">Home</a>
 	<a href="books.html">Books</a>
@@ -13,26 +23,15 @@
 	  <a href="test.html">Test</a>
   </div>
   <div class="nav-right">
-	<div class="auth-text">
-		Join the journey 🌸</div>
-	<a href="Log In.html" class="profile-button" id="profileButton">
-    👤</a>
-  </div>
-	<div class="profile-dropdown" id="profileDropdown">
-    <p id="membershipText">Membership: Dreamer</p>
-    <a href="#">Change Password</a>
-    <button onclick="logout()">Logout</button>
+    <div class="auth-text">
+        Join the journey 🌸</div>
+    <a href="Log In.html" class="profile-button" id="profileButton">👤</a>
+    <div class="profile-dropdown" id="profileDropdown">
+        <p id="membershipText">Membership: Dreamer</p>
+        <a href="#">Change Password</a>
+        <button onclick="logout()">Logout</button></div>
 </div>
 </nav>
-
-
-<head>
-	<meta charset="UTF-8">
-<title>Jae Hq</title>
-<link rel="stylesheet" href="style.css">
-</head>
-
-<body>
 
  <div class="butterfly">🦋</div>
  <div class="butterfly">🦋</div>
@@ -40,22 +39,6 @@
  
  <div id="user-info"></div>
 
-<script>
-    const user = localStorage.getItem("loggedInUser");
-
-    if (user) {
-        document.getElementById("user-info").innerHTML = `
-            <p>Welcome, ${user} 👋</p>
-            <button onclick="logout()">Logout</button>
-        `;
-    }
-	
-	
-	function logout() {
-    localStorage.removeItem("loggedInUser");
-    location.reload();
-}
-</script>
 
    <h1>Welcome to my website</h1>
    
@@ -68,21 +51,59 @@
    <p>I am many things. An author, a gamer, a motorsport enthusiast and a little bit of a travel freak.</p>
    
 
+<script type="module">
 
-	<script>
-    const currentUser = localStorage.getItem("loggedInUser");
-    const users = JSON.parse(localStorage.getItem("users")) || [];
+import { auth, db } from "./firebase.js";
 
-    const foundUser = users.find(
-        user => user.username === currentUser
-    );
+import {
+    onAuthStateChanged
+}
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
-    if (foundUser) {
-        document.getElementById("profileButton").innerHTML =
-            foundUser.emoji;
+import {
+    doc,
+    getDoc
+}
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+
+onAuthStateChanged(auth, async (user) => {
+
+    if (user) {
+
+        const docRef = doc(db, "users", user.uid);
+
+        const docSnap = await getDoc(docRef);
+
+        if (docSnap.exists()) {
+
+            const userData = docSnap.data();
+
+            // Emoji button
+            document.getElementById("profileButton").innerHTML =
+                userData.emoji;
+
+            // Welcome text
+            document.querySelector(".auth-text").innerHTML =
+                `Welcome back, ${userData.username} ✨`;
+
+            // Membership
+            document.getElementById("membershipText").innerHTML =
+                `Membership: ${userData.membership}`;
+
+        }
+
     }
+    else {
+
+        document.querySelector(".auth-text").innerHTML =
+            "Join the journey 🌸";
+
+    }
+
+});
+
 </script>
-	
 </body>
 
 </html>
