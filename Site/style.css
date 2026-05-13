@@ -402,6 +402,26 @@ nav {
 	background: #ff4d4d;
 }
 
+/*!----------Profile------------*/
+
+.emoji-picker {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin: 20px 0;
+    flex-wrap: wrap;
+}
+
+.emoji-picker span {
+    font-size: 28px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.emoji-picker span:hover {
+    transform: scale(1.2);
+}
+
 
 
 
