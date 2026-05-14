@@ -1,73 +1,47 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&family=Poppins:wght@300;400;500;600&display=swap');
-
-
 /* =========================================
    ROOT VARIABLES
 ========================================= */
-
 :root {
-
     --bg-dark: #070b14;
     --bg-secondary: #111827;
-
     --neon-pink: #ff4fd8;
     --neon-blue: #44e9ff;
     --neon-purple: #9d4dff;
-
     --glass-bg: rgba(255,255,255,0.06);
-
     --text-main: #f5f5f5;
     --text-soft: #b8c1d9;
-
     --border-glow: rgba(68,233,255,0.25);
-
 }
-
-
 /* =========================================
    GLOBAL
 ========================================= */
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-
 html {
     scroll-behavior: smooth;
 }
-
 body {
-
     font-family: 'Poppins', sans-serif;
-
     background:
         radial-gradient(circle at top left,
         rgba(157,77,255,0.2),
         transparent 30%),
-
         radial-gradient(circle at bottom right,
         rgba(255,79,216,0.2),
         transparent 30%),
-
         var(--bg-dark);
-
     color: var(--text-main);
-
     min-height: 100vh;
-
     padding: 20px;
-
     overflow-x: hidden;
-
 }
-
-
 /* =========================================
    UNIVERSAL LAYOUT SYSTEM
 ========================================= */
-
 .page-header,
 .controls,
 .blog-container,
@@ -76,21 +50,15 @@ body {
 .video-container,
 .hero,
 nav {
-
     width: 100%;
     max-width: 1200px;
-
     margin-left: auto;
     margin-right: auto;
-
 }
-
 main,
 section {
     width: 100%;
 }
-
-
 /* =========================================
    TYPOGRAPHY
 ========================================= */
@@ -98,688 +66,368 @@ section {
 h1,
 h2,
 h3 {
-
     font-family: 'Orbitron', sans-serif;
 
     letter-spacing: 2px;
-
 }
 
 h1 {
 
     font-size: 56px;
-
     margin-bottom: 20px;
-
     color: var(--neon-blue);
-
     text-shadow:
         0 0 10px var(--neon-blue),
         0 0 30px var(--neon-blue);
-
 }
-
 h2 {
-
     color: var(--neon-pink);
-
     margin-bottom: 20px;
-
 }
-
 p {
-
     color: var(--text-soft);
-
     line-height: 1.8;
-
     max-width: 700px;
-
     margin-left: auto;
     margin-right: auto;
-
 }
-
-
 /* =========================================
    PAGE HEADER
 ========================================= */
-
 .page-header {
-
     text-align: center;
-
     margin-top: 40px;
     margin-bottom: 50px;
-
 }
-
 .page-header p {
-
     margin-top: 15px;
-
 }
-
-
 /* =========================================
    NAVBAR
 ========================================= */
-
 nav {
-
     display: flex;
-
     justify-content: center;
-
     align-items: center;
-
     padding: 18px 30px;
-
     margin-bottom: 60px;
-
     border-radius: 25px;
-
     background: var(--glass-bg);
-
     backdrop-filter: blur(16px);
-
     border: 1px solid var(--border-glow);
-
-    box-shadow:
-        0 0 20px rgba(68,233,255,0.08);
-
+    box-shadow:   0 0 20px rgba(68,233,255,0.08);
 }
-
-
 .nav-left,
 .nav-right {
-
     display: flex;
-
     align-items: center;
-
     gap: 20px;
-
     flex-wrap: wrap;
-
     justify-content: center;
-
 }
-
-
 .nav-left a {
-
     text-decoration: none;
-
     color: var(--text-main);
-
     font-weight: 500;
-
     transition: 0.3s ease;
-
     position: relative;
-
     padding: 8px 14px;
-
     border-radius: 12px;
-
 }
-
-
 .nav-left a:hover,
 .nav-left a.active {
-
     color: var(--neon-blue);
-
     background: rgba(68,233,255,0.08);
-
     text-shadow:
         0 0 10px var(--neon-blue);
-
 }
-
-
 .auth-text {
-
     color: var(--text-soft);
-
     font-size: 14px;
-
 }
-
-
 /* =========================================
    PROFILE BUTTON
 ========================================= */
-
 .profile-area {
-
     position: relative;
-
 }
-
-
 .profile-button {
-
     width: 52px;
     height: 52px;
-
     border-radius: 50%;
-
     display: flex;
     align-items: center;
     justify-content: center;
-
     text-decoration: none;
-
     font-size: 24px;
-
     background:
         linear-gradient(
             135deg,
             var(--neon-purple),
             var(--neon-blue)
         );
-
     box-shadow:
         0 0 15px var(--neon-blue);
-
     transition: 0.3s ease;
-
 }
-
-
 .profile-button:hover {
-
     transform: scale(1.08);
-
     box-shadow:
         0 0 25px var(--neon-blue);
-
 }
-
-
 /* =========================================
    PROFILE DROPDOWN
 ========================================= */
-
 .profile-dropdown {
-
     position: absolute;
-
     top: 70px;
     right: 0;
-
     width: 230px;
-
     padding: 20px;
-
     border-radius: 20px;
-
     background: rgba(10,15,30,0.95);
-
     border: 1px solid var(--border-glow);
-
     backdrop-filter: blur(16px);
-
     opacity: 0;
-
     visibility: hidden;
-
     transform: translateY(10px);
-
     transition: 0.3s ease;
-
     z-index: 100;
-
 }
-
-
 .profile-area:hover .profile-dropdown {
-
     opacity: 1;
-
     visibility: visible;
-
     transform: translateY(0);
-
 }
-
-
 .profile-dropdown p {
-
     margin-bottom: 10px;
-
     color: var(--text-main);
-
 }
-
-
 .profile-dropdown button {
-
     width: 100%;
-
     margin-top: 10px;
-
 }
-
-
 /* =========================================
    BUTTONS
 ========================================= */
-
 button {
-
     padding: 12px 18px;
-
     border: none;
-
     border-radius: 14px;
-
     cursor: pointer;
-
     font-weight: 600;
-
     color: white;
-
     background:
         linear-gradient(
             135deg,
             var(--neon-pink),
             var(--neon-purple)
         );
-
     transition: 0.3s ease;
-
 }
-
-
 button:hover {
-
     transform: translateY(-2px);
-
     box-shadow:
         0 0 20px var(--neon-pink);
-
 }
-
-
 /* =========================================
    HERO SECTION
 ========================================= */
-
 .hero {
-
     margin-top: 120px;
-
     margin-bottom: 120px;
-
     text-align: center;
-
 }
-
-
 .hero p {
-
     font-size: 18px;
-
     margin-top: 20px;
-
 }
-
-
 /* =========================================
    CONTROLS
 ========================================= */
-
 .controls {
-
     text-align: center;
-
     margin-bottom: 40px;
-
 }
-
-
 /* =========================================
    SEARCH BAR
 ========================================= */
-
 #searchInput {
-
     display: block;
-
     width: min(600px, 90%);
-
     margin: 0 auto 30px auto;
-
     padding: 15px 20px;
-
     border-radius: 30px;
-
     border: 1px solid var(--border-glow);
-
     background: rgba(255,255,255,0.08);
-
     color: white;
-
     outline: none;
-
     backdrop-filter: blur(10px);
-
     transition: 0.3s ease;
-
 }
-
-
 #searchInput:focus {
-
     border-color: var(--neon-blue);
-
     box-shadow:
-        0 0 20px rgba(68,233,255,0.25);
-
+       0 0 20px rgba(68,233,255,0.25);
 }
-
-
 /* =========================================
    FILTER BUTTONS
 ========================================= */
-
 .filter-bar {
-
     display: flex;
-
     justify-content: center;
-
     flex-wrap: wrap;
-
     gap: 12px;
-
 }
-
-
 /* =========================================
    GLASS CARDS
 ========================================= */
-
 .book-card,
 .blog-card,
 .travel-card {
-
     width: 260px;
-
     padding: 18px;
-
     border-radius: 22px;
-
     background: var(--glass-bg);
-
     border: 1px solid var(--border-glow);
-
     backdrop-filter: blur(16px);
-
     transition: 0.3s ease;
-
 }
-
-
 .book-card:hover,
 .blog-card:hover,
 .travel-card:hover {
-
     transform: translateY(-8px);
-
     box-shadow:
         0 0 25px rgba(68,233,255,0.15);
-
 }
-
-
 /* =========================================
    CARD CONTAINERS
 ========================================= */
-
 .books-container,
 .blog-container,
 .travel-container,
 .video-container {
-
     display: flex;
-
     justify-content: center;
-
     flex-wrap: wrap;
-
     gap: 25px;
-
     margin-top: 40px;
-
 }
-
-
 /* =========================================
    IMAGES
 ========================================= */
-
 .book-card img,
 .blog-card img,
 .travel-card img {
-
     width: 100%;
-
     border-radius: 14px;
-
 }
-
-
 /* =========================================
    COMMENTS
 ========================================= */
-
 #comments-section {
-
     margin-top: 60px;
-
 }
-
-
 .comment {
-
     width: min(700px, 90%);
-
     margin: 15px auto;
-
     padding: 15px;
-
     border-radius: 16px;
-
     background: rgba(255,255,255,0.05);
-
     border: 1px solid var(--border-glow);
-
     text-align: left;
-
 }
-
-
 .comment strong {
-
     color: var(--neon-blue);
-
 }
-
-
 .comment small {
-
     color: #7f8db3;
-
 }
-
-
 /* =========================================
    EMOJI PICKER
 ========================================= */
-
 .emoji-picker {
-
     display: flex;
-
     justify-content: center;
-
     flex-wrap: wrap;
-
     gap: 14px;
-
     margin: 25px 0;
-
 }
-
-
 .emoji-picker span {
-
     font-size: 34px;
-
     cursor: pointer;
-
     transition: 0.2s ease;
-
 }
-
-
 .emoji-picker span:hover {
-
     transform: scale(1.2);
-
 }
-
-
 /* =========================================
    FLOATING BUTTERFLIES
 ========================================= */
-
 .butterfly {
-
     position: fixed;
-
     font-size: 28px;
-
     opacity: 0.18;
-
     pointer-events: none;
-
     animation: float 8s ease-in-out infinite;
-
 }
-
-
 .butterfly:nth-child(1) {
-
     top: 20%;
     left: 8%;
-
 }
-
-
 .butterfly:nth-child(2) {
-
     bottom: 15%;
     right: 10%;
-
 }
-
-
 @keyframes float {
-
     0% {
         transform: translateY(0px);
     }
-
     50% {
         transform: translateY(-25px);
     }
-
     100% {
         transform: translateY(0px);
     }
-
 }
-
-
 /* =========================================
    RESPONSIVE
 ========================================= */
-
 @media (max-width: 900px) {
-
     nav {
-
         padding: 20px;
-
     }
-
     .nav-left {
-
         flex-wrap: wrap;
-
         justify-content: center;
-
     }
-
     h1 {
-
         font-size: 42px;
-
     }
-
     #searchInput,
     .comment {
-
         width: 90%;
-
     }
-
 }
-
-
 @media (max-width: 600px) {
-
     body {
-
         padding: 12px;
-
     }
-
     nav {
-
         padding: 18px;
-
     }
-
     .hero {
-
         margin-top: 70px;
-
     }
-
     h1 {
-
         font-size: 34px;
-
     }
-
     p {
-
         font-size: 15px;
-
     }
-
     .book-card,
     .blog-card,
     .travel-card {
-
         width: 100%;
-
     }
-
 }
