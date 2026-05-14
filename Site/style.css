@@ -495,3 +495,19 @@ button:hover {
     text-shadow:
         0 0 10px var(--neon-pink);
 }
+/* =========================================
+   SECONDARY BUTTON
+========================================= */
+.secondary-button {
+    background:
+        rgba(255,255,255,0.06);
+    border:
+        1px solid var(--border-glow);
+    color:
+        var(--text-main);
+}
+.secondary-button:hover {
+    box-shadow:
+        0 0 20px rgba(68,233,255,0.15);
+}
+
