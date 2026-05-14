@@ -1,67 +1,158 @@
 <!DOCTYPE html>
-
-<html>
-<!--------Navigation---------->
- <nav>
-        <div class="nav-left">
-            <a href="index.html">Home</a>
-            <a href="books.html">Books</a>
-            <a href="blog.html">Blog</a>
-            <a href="youtube.html">YouTube</a>
-            <a href="travel.html">Travel</a>
-            <a href="social.html">Socials</a>
-        </div>
-
-        <div class="nav-right">
-            <div class="auth-text" id="authMessage">
-                Join the journey ✨
-            </div>
-            <div class="profile-area">
-                <a href="login.html"
-                   class="profile-button"
-                   id="profileButton">👤</a>
-                <div class="profile-dropdown" id="profileDropdown">
-                    <p id="membershipText">
-                        Membership: Dreamer
-                    </p>
-                    <button onclick="resetPassword()">
-                        Reset Password
-                    </button>
-                    <button onclick="logout()">
-                        Logout
-                    </button>
-                </div>
-            </div>
-        </div>
-    </nav>
-
+<html lang="en">
 
 <head>
-	<meta charset="UTF-8">
-<title>Jae Hq</title>
-<link rel="stylesheet" href="style.css">
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Jae HQ | Books</title>
+
+    <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
 
- <div class="butterfly">🦋</div>
- <div class="butterfly">🦋</div>
-      
-   <h2 id="books">My books</h2> 
-   <div class="books-container">
-      <div class="book-card">
-	  
-	     <img src="Images\Books\Cover.jpg" alt="Remember me">
-		 <h3>Remember ME</h3>
-		 <p>Description</p>
-	  
-	  </div>
-   
-   
-   </div>
+    <!-- =========================================
+         NAVIGATION
+    ========================================== -->
+
+    <nav>
+
+        <div class="nav-left">
+
+            <a href="index.html">Home</a>
+
+            <a href="books.html" class="active">Books</a>
+
+            <a href="blog.html">Blog</a>
+
+            <a href="youtube.html">YouTube</a>
+
+            <a href="travel.html">Travel</a>
+
+            <a href="social.html">Socials</a>
+
+        </div>
+
+        <div class="nav-right">
+
+            <div class="auth-text" id="authMessage">
+                Join the journey ✨
+            </div>
+
+            <div class="profile-area">
+
+                <a href="login.html"
+                   class="profile-button"
+                   id="profileButton">
+
+                   👤
+
+                </a>
+
+                <div class="profile-dropdown"
+                     id="profileDropdown">
+
+                    <p id="membershipText">
+                        Membership: Dreamer
+                    </p>
+
+                    <button onclick="resetPassword()">
+                        Reset Password
+                    </button>
+
+                    <button onclick="logout()">
+                        Logout
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </nav>
 
 
-<script type="module" src="auth.js"></script>	
+    <!-- =========================================
+         FLOATING BUTTERFLIES
+    ========================================== -->
+
+    <div class="butterfly">🦋</div>
+    <div class="butterfly">🦋</div>
+
+
+    <!-- =========================================
+         PAGE HEADER
+    ========================================== -->
+
+    <header class="page-header">
+
+        <h1>My Books</h1>
+
+        <p>
+            Stories, ideas, and worlds created inside Jae HQ.
+        </p>
+
+    </header>
+
+
+    <!-- =========================================
+         BOOK SECTION
+    ========================================== -->
+
+    <main>
+
+        <section class="books-container">
+
+            <!-- BOOK CARD -->
+
+            <div class="book-card">
+
+                <img src="Images/Books/Cover.jpg"
+                     alt="Remember Me Book Cover">
+
+                <h3>Remember Me</h3>
+
+                <p>
+                    A journey through memories, emotions,
+                    and identity in a futuristic world.
+                </p>
+
+            </div>
+
+
+            <!-- SECOND CARD EXAMPLE -->
+
+            <div class="book-card">
+
+                <img src="Images/Books/Cover.jpg"
+                     alt="Future Project">
+
+                <h3>Future Project</h3>
+
+                <p>
+                    More stories and creative projects
+                    coming soon.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================================
+         SCRIPTS
+    ========================================== -->
+
+    <script type="module" src="auth.js"></script>
+
 </body>
 
 </html>
