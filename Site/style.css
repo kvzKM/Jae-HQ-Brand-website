@@ -60,6 +60,34 @@ body {
     padding: 20px;
 
     overflow-x: hidden;
+
+}
+
+
+/* =========================================
+   UNIVERSAL LAYOUT SYSTEM
+========================================= */
+
+.page-header,
+.controls,
+.blog-container,
+.books-container,
+.travel-container,
+.video-container,
+.hero,
+nav {
+
+    width: 100%;
+    max-width: 1200px;
+
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+main,
+section {
+    width: 100%;
 }
 
 
@@ -67,7 +95,9 @@ body {
    TYPOGRAPHY
 ========================================= */
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
 
     font-family: 'Orbitron', sans-serif;
 
@@ -105,7 +135,28 @@ p {
 
     max-width: 700px;
 
-    margin: auto;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+
+/* =========================================
+   PAGE HEADER
+========================================= */
+
+.page-header {
+
+    text-align: center;
+
+    margin-top: 40px;
+    margin-bottom: 50px;
+
+}
+
+.page-header p {
+
+    margin-top: 15px;
 
 }
 
@@ -118,7 +169,7 @@ nav {
 
     display: flex;
 
-    justify-content: space-between;
+    justify-content: center;
 
     align-items: center;
 
@@ -149,6 +200,10 @@ nav {
 
     gap: 20px;
 
+    flex-wrap: wrap;
+
+    justify-content: center;
+
 }
 
 
@@ -164,12 +219,19 @@ nav {
 
     position: relative;
 
+    padding: 8px 14px;
+
+    border-radius: 12px;
+
 }
 
 
-.nav-left a:hover {
+.nav-left a:hover,
+.nav-left a.active {
 
     color: var(--neon-blue);
+
+    background: rgba(68,233,255,0.08);
 
     text-shadow:
         0 0 10px var(--neon-blue);
@@ -367,6 +429,77 @@ button:hover {
 
 
 /* =========================================
+   CONTROLS
+========================================= */
+
+.controls {
+
+    text-align: center;
+
+    margin-bottom: 40px;
+
+}
+
+
+/* =========================================
+   SEARCH BAR
+========================================= */
+
+#searchInput {
+
+    display: block;
+
+    width: min(600px, 90%);
+
+    margin: 0 auto 30px auto;
+
+    padding: 15px 20px;
+
+    border-radius: 30px;
+
+    border: 1px solid var(--border-glow);
+
+    background: rgba(255,255,255,0.08);
+
+    color: white;
+
+    outline: none;
+
+    backdrop-filter: blur(10px);
+
+    transition: 0.3s ease;
+
+}
+
+
+#searchInput:focus {
+
+    border-color: var(--neon-blue);
+
+    box-shadow:
+        0 0 20px rgba(68,233,255,0.25);
+
+}
+
+
+/* =========================================
+   FILTER BUTTONS
+========================================= */
+
+.filter-bar {
+
+    display: flex;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 12px;
+
+}
+
+
+/* =========================================
    GLASS CARDS
 ========================================= */
 
@@ -441,42 +574,6 @@ button:hover {
 
 
 /* =========================================
-   SEARCH BAR
-========================================= */
-
-#searchInput {
-
-    width: 60%;
-
-    padding: 15px;
-
-    border-radius: 30px;
-
-    border: 1px solid var(--border-glow);
-
-    background: rgba(255,255,255,0.08);
-
-    color: white;
-
-    outline: none;
-
-    margin-bottom: 30px;
-
-}
-
-
-/* =========================================
-   FILTER BUTTONS
-========================================= */
-
-.filter-bar button {
-
-    margin: 5px;
-
-}
-
-
-/* =========================================
    COMMENTS
 ========================================= */
 
@@ -489,7 +586,7 @@ button:hover {
 
 .comment {
 
-    width: 60%;
+    width: min(700px, 90%);
 
     margin: 15px auto;
 
@@ -617,9 +714,7 @@ button:hover {
 
     nav {
 
-        flex-direction: column;
-
-        gap: 20px;
+        padding: 20px;
 
     }
 
@@ -676,6 +771,14 @@ button:hover {
     p {
 
         font-size: 15px;
+
+    }
+
+    .book-card,
+    .blog-card,
+    .travel-card {
+
+        width: 100%;
 
     }
 
