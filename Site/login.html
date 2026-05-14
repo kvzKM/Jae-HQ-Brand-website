@@ -1,38 +1,114 @@
 <!DOCTYPE html>
-<html>
+
+<html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
-    <title>Login</title>
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Login | Jae HQ</title>
 
     <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
 
-    <h1>Login</h1>
 
-    <input type="email"
-           id="loginEmail"
-           placeholder="Email">
+    <!-- ========================= -->
+    <!-- FLOATING BUTTERFLIES -->
+    <!-- ========================= -->
 
-    <br><br>
+    <div class="butterfly">🦋</div>
+    <div class="butterfly">🦋</div>
 
-    <input type="password"
-           id="loginPassword"
-           placeholder="Password">
 
-    <br><br>
+    <!-- ========================= -->
+    <!-- AUTH PAGE -->
+    <!-- ========================= -->
 
-    <button onclick="login()">
-        Login
-    </button>
+    <section class="auth-page">
 
-    <p>
-        Don't have an account?
-        <a href="signup.html">Sign up</a>
-    </p>
+        <div class="auth-card">
+
+
+            <!-- HEADER -->
+
+            <h1>Access Portal</h1>
+
+            <p class="auth-subtext">
+                Reconnect to the neon butterfly network ✨
+            </p>
+
+
+            <!-- FORM -->
+
+            <div class="auth-form">
+
+
+                <input type="email"
+                       id="loginEmail"
+                       placeholder="Email Address">
+
+
+                <input type="password"
+                       id="loginPassword"
+                       placeholder="Password">
+
+
+                <!-- LOGIN BUTTON -->
+
+                <button onclick="login()">
+
+                    Enter HQ
+
+                </button>
+
+
+                <!-- RESET PASSWORD -->
+
+                <button onclick="resetPassword()"
+                        class="secondary-button">
+
+                    Reset Password
+
+                </button>
+
+
+                <!-- SIGNUP LINK -->
+
+                <p class="auth-link">
+
+                    New to the network?
+
+                    <a href="signup.html">
+
+                        Create Account
+
+                    </a>
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ========================= -->
+    <!-- SCRIPTS -->
+    <!-- ========================= -->
+
+    <script type="module" src="firebase.js"></script>
 
     <script type="module" src="auth.js"></script>
 
+
 </body>
+
 </html>
