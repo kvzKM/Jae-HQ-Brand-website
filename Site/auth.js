@@ -156,6 +156,4 @@ window.resetPassword = async function() {
 
     }
 
-   
-
 };
