@@ -1,41 +1,136 @@
 <!DOCTYPE html>
-<html>
+
+<html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <title>Sign Up</title>
-  <link rel="stylesheet" href="style.css">
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Create Account | Jae HQ</title>
+
+    <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
 
-<h1>Create Account</h1>
 
-<input type="text" id="signupUsername" placeholder="Username"><br><br>
-<input type="email" id="signupEmail" placeholder="Email"><br><br>
-<input type="password" id="signupPassword" placeholder="Password"><br><br>
+    <!-- ========================= -->
+    <!-- FLOATING BUTTERFLIES -->
+    <!-- ========================= -->
 
-  <h3>Choose Your Profile Emoji</h3>
+    <div class="butterfly">🦋</div>
+    <div class="butterfly">🦋</div>
 
-<div class="emoji-picker">
 
-    <span onclick="selectEmoji('🦋')">🦋</span>
-    <span onclick="selectEmoji('🌸')">🌸</span>
-    <span onclick="selectEmoji('🌙')">🌙</span>
-    <span onclick="selectEmoji('⭐')">⭐</span>
-    <span onclick="selectEmoji('🧸')">🧸</span>
-    <span onclick="selectEmoji('☁️')">☁️</span>
-    <span onclick="selectEmoji('🍄')">🍄</span>
-    <span onclick="selectEmoji('🐇')">🐇</span>
+    <!-- ========================= -->
+    <!-- AUTH CONTAINER -->
+    <!-- ========================= -->
 
-</div>
+    <section class="auth-page">
 
-<p id="selectedEmoji">Selected: 🦋</p>
+        <div class="auth-card">
 
-<button onclick="signup()">Sign Up</button>
 
-<p>Already have an Account? <a href="Log In.html">Login</a></p>
+            <!-- HEADER -->
 
-<script type="module" src="auth.js"></script>
+            <h1>Create Identity</h1>
+
+            <p class="auth-subtext">
+                Enter the neon network and begin your journey ✨
+            </p>
+
+
+            <!-- FORM -->
+
+            <div class="auth-form">
+
+                <input type="text"
+                       id="signupUsername"
+                       placeholder="Username">
+
+
+                <input type="email"
+                       id="signupEmail"
+                       placeholder="Email Address">
+
+
+                <input type="password"
+                       id="signupPassword"
+                       placeholder="Password">
+
+
+                <!-- ========================= -->
+                <!-- EMOJI PICKER -->
+                <!-- ========================= -->
+
+                <h3>Choose Your Butterfly Identity</h3>
+
+                <div class="emoji-picker">
+
+                    <span onclick="selectEmoji('🦋')">🦋</span>
+                    <span onclick="selectEmoji('🌸')">🌸</span>
+                    <span onclick="selectEmoji('🌙')">🌙</span>
+                    <span onclick="selectEmoji('⭐')">⭐</span>
+                    <span onclick="selectEmoji('🧸')">🧸</span>
+                    <span onclick="selectEmoji('☁️')">☁️</span>
+                    <span onclick="selectEmoji('🍄')">🍄</span>
+                    <span onclick="selectEmoji('🐇')">🐇</span>
+
+                </div>
+
+
+                <p id="selectedEmoji"
+                   class="selected-emoji">
+
+                    Selected: 🦋
+
+                </p>
+
+
+                <!-- BUTTON -->
+
+                <button onclick="signup()">
+
+                    Create Account
+
+                </button>
+
+
+                <!-- LOGIN LINK -->
+
+                <p class="auth-link">
+
+                    Already connected?
+
+                    <a href="login.html">
+
+                        Log In
+
+                    </a>
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ========================= -->
+    <!-- SCRIPTS -->
+    <!-- ========================= -->
+
+    <script type="module" src="firebase.js"></script>
+
+    <script type="module" src="auth.js"></script>
+
 
 </body>
+
 </html>
