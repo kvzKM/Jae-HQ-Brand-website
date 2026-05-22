@@ -40,18 +40,33 @@ html {
 body {
     font-family: 'Poppins', sans-serif;
     background:
-        radial-gradient(circle at top left,
-        rgba(157,77,255,0.2),
-        transparent 30%),
-        radial-gradient(circle at bottom right,
-        rgba(255,79,216,0.2),
-        transparent 30%),
-        var(--bg-dark);
+        linear-gradient(
+            135deg,
+            rgba(255, 48, 79, 0.08),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at top left,
+            rgba(56, 232, 255, 0.16),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at bottom right,
+            rgba(255, 46, 196, 0.15),
+            transparent 30%
+        ),
+        linear-gradient(
+            180deg,
+            #05060a 0%,
+            #090d18 45%,
+            #05060a 100%
+        );
+
     color: var(--text-main);
     min-height: 100vh;
     padding: 20px;
     overflow-x: hidden;
-   text-align: center;
+    text-align: center;
 }
 /* =========================================
    UNIVERSAL LAYOUT SYSTEM
