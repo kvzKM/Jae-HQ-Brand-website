@@ -5,25 +5,25 @@
    Clean master stylesheet
 ===================================================== */
 :root {
-    --bg-dark: #050505;
-    --bg-secondary: #101010;
-    --bg-panel: rgba(255, 255, 255, 0.055);
+    --bg-dark: #0d0b09;
+    --bg-secondary: #1b1612;
+    --bg-panel: rgba(255, 255, 255, 0.06);
 
-    --accent-main: #d4af37;
-    --accent-warm: #9b1c1f;
-    --accent-gold: #c9a44c;
+    --accent-main: #a83e2d;
+    --accent-warm: #d17842;
+    --accent-gold: #d8aa62;
 
-    --text-main: #f4f1ea;
-    --text-soft: #aaa39a;
+    --text-main: #fff6ec;
+    --text-soft: #c5b3a3;
 
-    --cream: #f4f1ea;
-    --charcoal: #101010;
-    --brown: #1a1612;
+    --cream: #fff6ec;
+    --charcoal: #15110e;
+    --brown: #2a1d17;
 
-    --border-soft: rgba(244, 241, 234, 0.12);
-    --border-warm: rgba(212, 175, 55, 0.25);
+    --border-soft: rgba(255, 246, 236, 0.13);
+    --border-warm: rgba(209, 120, 66, 0.28);
 
-    --shadow-soft: 0 20px 60px rgba(0, 0, 0, 0.4);
+    --shadow-soft: 0 20px 60px rgba(0, 0, 0, 0.36);
 }
 /* =====================================================
    GLOBAL RESET
@@ -47,12 +47,6 @@ body {
     overflow-x: hidden;
     text-align: center;
         );
-}
-body {
-    background:
-        radial-gradient(circle at top left, rgba(201, 162, 39, 0.10), transparent 30%),
-        radial-gradient(circle at bottom right, rgba(217, 4, 41, 0.12), transparent 30%),
-        linear-gradient(180deg, #070707 0%, #111111 48%, #070707 100%);
 }
 
 body::before {
