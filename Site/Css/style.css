@@ -6,28 +6,24 @@
 ===================================================== */
 
 :root {
-    --bg-dark: #03040a;
-    --bg-secondary: #080d18;
+    --bg-dark: #050711;
+    --bg-secondary: #0c1020;
     --bg-panel: rgba(255, 255, 255, 0.055);
 
-    --neon-blue: #00e5ff;
-    --neon-pink: #ff2bd6;
-    --neon-purple: #7a3cff;
-    --neon-red: #ff1744;
-    --neon-gold: #ffd166;
+    --neon-blue: #4cc9f0;
+    --neon-pink: #f72585;
+    --neon-purple: #7209b7;
+    --neon-red: #ff3b3f;
+    --neon-gold: #f9c74f;
 
-    --text-main: #f7f8ff;
-    --text-soft: #9aa7c7;
+    --text-main: #f8f9ff;
+    --text-soft: #a8b2d1;
 
-    --border-glow: rgba(0, 229, 255, 0.24);
-    --border-hot: rgba(255, 43, 214, 0.28);
+    --border-glow: rgba(76, 201, 240, 0.24);
+    --border-hot: rgba(247, 37, 133, 0.30);
 
-    --shadow-blue: 0 0 35px rgba(0, 229, 255, 0.16);
-    --shadow-pink: 0 0 35px rgba(255, 43, 214, 0.16);
-
-    --radius-large: 30px;
-    --radius-medium: 20px;
-    --radius-small: 12px;
+    --shadow-blue: 0 0 35px rgba(76, 201, 240, 0.16);
+    --shadow-pink: 0 0 35px rgba(247, 37, 133, 0.16);
 }
 /* =====================================================
    GLOBAL RESET
@@ -50,29 +46,13 @@ body {
     padding: 20px;
     overflow-x: hidden;
     text-align: center;
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(255, 48, 79, 0.08),
-            transparent 30%
-        ),
-        radial-gradient(
-            circle at top left,
-            rgba(56, 232, 255, 0.16),
-            transparent 28%
-        ),
-        radial-gradient(
-            circle at bottom right,
-            rgba(255, 46, 196, 0.15),
-            transparent 30%
-        ),
-        linear-gradient(
-            180deg,
-            #05060a 0%,
-            #090d18 45%,
-            #05060a 100%
         );
+}
+body {
+    background:
+        radial-gradient(circle at top left, rgba(114, 9, 183, 0.22), transparent 32%),
+        radial-gradient(circle at bottom right, rgba(247, 37, 133, 0.18), transparent 30%),
+        linear-gradient(180deg, #050711 0%, #0c1020 48%, #050711 100%);
 }
 
 body::before {
