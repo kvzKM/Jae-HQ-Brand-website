@@ -5,24 +5,25 @@
    Clean master stylesheet
 ===================================================== */
 :root {
-    --bg-dark: #070707;
-    --bg-secondary: #111111;
-    --bg-panel: rgba(255, 255, 255, 0.05);
+    --bg-dark: #080808;
+    --bg-secondary: #151515;
+    --bg-panel: rgba(255, 255, 255, 0.06);
 
-    --neon-blue: #d6d6d6;
-    --neon-pink: #b11226;
-    --neon-purple: #2b2b2b;
-    --neon-red: #d90429;
-    --neon-gold: #c9a227;
+    --accent-main: #b51624;
+    --accent-warm: #c05a2b;
+    --accent-gold: #d8b56d;
 
-    --text-main: #f4f4f4;
-    --text-soft: #a7a7a7;
+    --text-main: #f5efe8;
+    --text-soft: #b8aaa0;
 
-    --border-glow: rgba(201, 162, 39, 0.25);
-    --border-hot: rgba(217, 4, 41, 0.30);
+    --cream: #f5efe8;
+    --charcoal: #151515;
+    --brown: #1f1714;
 
-    --shadow-blue: 0 0 35px rgba(201, 162, 39, 0.12);
-    --shadow-pink: 0 0 35px rgba(217, 4, 41, 0.15);
+    --border-soft: rgba(245, 239, 232, 0.14);
+    --border-warm: rgba(216, 181, 109, 0.28);
+
+    --shadow-soft: 0 20px 60px rgba(0, 0, 0, 0.35);
 }
 /* =====================================================
    GLOBAL RESET
