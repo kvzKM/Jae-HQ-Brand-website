@@ -11,6 +11,7 @@ import {
     doc,
     setDoc,
     getDoc,
+    getDocFromServer,
     updateDoc,
     serverTimestamp
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
@@ -46,8 +47,42 @@ function friendlyAuthError(error) {
 export async function getUserProfile(uid) {
     if (!uid) return null;
 
-    const snapshot = await getDoc(doc(db, "users", uid));
-    return snapshot.exists() ? { id: snapshot.id, ...snapshot.data() } : null;
+    const reference = doc(db, "users", uid);
+
+    try {
+        const snapshot = await getDocFromServer(reference);
+        const profile = snapshot.exists()
+            ? { id: snapshot.id, ...snapshot.data() }
+            : null;
+
+        console.info("[JAE HQ AUTH]", {
+            uid,
+            profileDocumentId: profile?.id ?? null,
+            role: profile?.role ?? null,
+            source: "server"
+        });
+
+        return profile;
+    } catch (serverError) {
+        console.warn(
+            "Could not read the profile directly from Firestore server. Falling back to the standard Firestore read.",
+            serverError
+        );
+
+        const snapshot = await getDoc(reference);
+        const profile = snapshot.exists()
+            ? { id: snapshot.id, ...snapshot.data() }
+            : null;
+
+        console.info("[JAE HQ AUTH]", {
+            uid,
+            profileDocumentId: profile?.id ?? null,
+            role: profile?.role ?? null,
+            source: "fallback"
+        });
+
+        return profile;
+    }
 }
 
 export function watchAuth(callback) {
