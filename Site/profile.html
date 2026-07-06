@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Manage your JAE HQ member profile.">
+    <title>My Profile | JAE HQ</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="profile">
+    <div id="siteNavigation"></div>
+    <main class="site-main">
+        <header class="page-hero">
+            <span class="eyebrow">Member profile</span>
+            <h1>Your little corner of <span class="gradient-text">JAE HQ.</span></h1>
+            <p>Update the public identity attached to your future JAE HQ interactions.</p>
+        </header>
+
+        <section class="section profile-shell">
+            <aside class="profile-card">
+                <div id="profileAvatar" class="profile-avatar">🦋</div>
+                <h3 id="profileMembership">JAE HQ Member</h3>
+                <p>Your current account access.</p>
+                <span class="status-chip" id="profileRole">Member</span>
+            </aside>
+
+            <section class="profile-card">
+                <h2>Profile details</h2>
+                <p class="auth-subtext">Your email is tied to Firebase Authentication. Your username and identity are stored in your JAE HQ profile.</p>
+
+                <form class="form" onsubmit="event.preventDefault(); saveProfile();">
+                    <div class="field">
+                        <label for="profileUsername">Username</label>
+                        <input id="profileUsername" type="text" minlength="2" maxlength="30" required>
+                    </div>
+                    <div class="field">
+                        <label for="profileEmail">Email address</label>
+                        <input id="profileEmail" type="email" disabled>
+                    </div>
+                    <div class="field">
+                        <label>Profile identity</label>
+                        <div class="emoji-picker">
+                            <button class="emoji-option" type="button" data-emoji="🦋" onclick="selectEmoji('🦋')">🦋</button>
+                            <button class="emoji-option" type="button" data-emoji="🌸" onclick="selectEmoji('🌸')">🌸</button>
+                            <button class="emoji-option" type="button" data-emoji="🌙" onclick="selectEmoji('🌙')">🌙</button>
+                            <button class="emoji-option" type="button" data-emoji="⭐" onclick="selectEmoji('⭐')">⭐</button>
+                            <button class="emoji-option" type="button" data-emoji="🧸" onclick="selectEmoji('🧸')">🧸</button>
+                            <button class="emoji-option" type="button" data-emoji="☁️" onclick="selectEmoji('☁️')">☁️</button>
+                            <button class="emoji-option" type="button" data-emoji="🍄" onclick="selectEmoji('🍄')">🍄</button>
+                            <button class="emoji-option" type="button" data-emoji="🐇" onclick="selectEmoji('🐇')">🐇</button>
+                        </div>
+                        <div id="selectedEmoji" class="form-message">Selected identity: 🦋</div>
+                    </div>
+                    <div id="formMessage" class="form-message" aria-live="polite"></div>
+                    <button class="button gradient" type="submit">Save profile</button>
+                    <button class="button secondary" type="button" onclick="resetPassword()">Email me a password reset</button>
+                </form>
+            </section>
+        </section>
+    </main>
+    <div id="siteFooter"></div>
+    <script type="module" src="js/navbar.js"></script>
+</body>
+</html>
