@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex,nofollow">
+    <title>Admin Studio | JAE HQ</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="admin-body">
+    <section id="adminLoading" class="admin-loading">
+        <div class="admin-loading-card">
+            <span class="eyebrow">JAE HQ secure area</span>
+            <h2>Checking admin access...</h2>
+            <p class="lead">The studio will open once your Firebase account and admin role are verified.</p>
+        </div>
+    </section>
+
+    <div id="adminApp" class="admin-app hidden">
+        <aside class="admin-sidebar">
+            <div class="admin-brand">
+                <a href="../index.html" class="brand" style="color:white;">
+                    <span class="brand-symbol">🦋</span>
+                    <span class="brand-copy">
+                        <strong>JAE HQ</strong>
+                        <small>Admin Studio</small>
+                    </span>
+                </a>
+            </div>
+
+            <nav class="admin-nav" aria-label="Admin Studio navigation">
+                <button type="button" class="active" data-view="overview"><span class="admin-nav-icon">⌂</span> Overview</button>
+                <button type="button" data-view="posts"><span class="admin-nav-icon">✎</span> Blog posts</button>
+                <button type="button" data-view="projects"><span class="admin-nav-icon">⌘</span> Portfolio</button>
+                <button type="button" data-view="youtube"><span class="admin-nav-icon">▶</span> YouTube</button>
+                <button type="button" data-view="books"><span class="admin-nav-icon">▤</span> Books</button>
+                <button type="button" data-view="travel"><span class="admin-nav-icon">⌖</span> Travel</button>
+                <button type="button" data-view="users"><span class="admin-nav-icon">◎</span> Users</button>
+                <button type="button" data-view="comments"><span class="admin-nav-icon">◌</span> Comments</button>
+            </nav>
+
+            <div class="admin-sidebar-footer">
+                <div class="admin-user">
+                    <strong id="adminUsername">Administrator</strong>
+                    <small id="adminEmail">Loading account...</small>
+                </div>
+                <button id="adminLogoutButton" type="button" class="button">Log out</button>
+            </div>
+        </aside>
+
+        <main class="admin-main">
+            <header class="admin-topbar">
+                <button id="adminMobileMenu" class="admin-mobile-menu" type="button" aria-label="Open Admin Studio menu">☰</button>
+                <div class="admin-topbar-copy">
+                    <strong id="adminTopTitle">Overview</strong>
+                    <small>JAE HQ Admin Studio</small>
+                </div>
+                <a href="../index.html" class="button secondary admin-live-link">View live site</a>
+            </header>
+
+            <section id="view-overview" class="admin-view active">
+                <div class="admin-page-header">
+                    <div>
+                        <span class="eyebrow">Control centre</span>
+                        <h1>Good to see you, <span id="overviewName" class="gradient-text">Katie</span>.</h1>
+                        <p>Manage the content and community behind JAE HQ from one place.</p>
+                    </div>
+                </div>
+
+                <div class="admin-stat-grid">
+                    <article class="admin-stat">
+                        <span class="admin-stat-label">Blog posts</span>
+                        <strong id="statPosts" class="admin-stat-value">—</strong>
+                        <span class="admin-stat-note">All post records</span>
+                    </article>
+                    <article class="admin-stat">
+                        <span class="admin-stat-label">Portfolio projects</span>
+                        <strong id="statProjects" class="admin-stat-value">—</strong>
+                        <span class="admin-stat-note">Software project records</span>
+                    </article>
+                    <article class="admin-stat">
+                        <span class="admin-stat-label">JAE HQ members</span>
+                        <strong id="statUsers" class="admin-stat-value">—</strong>
+                        <span class="admin-stat-note">Registered profiles</span>
+                    </article>
+                    <article class="admin-stat">
+                        <span class="admin-stat-label">Comments</span>
+                        <strong id="statComments" class="admin-stat-value">—</strong>
+                        <span class="admin-stat-note">Community comments</span>
+                    </article>
+                </div>
+
+                <div class="admin-panel-grid">
+                    <section class="admin-panel">
+                        <div class="admin-panel-header">
+                            <div>
+                                <h3>Quick create</h3>
+                                <p>Jump straight into a new content record.</p>
+                            </div>
+                        </div>
+                        <div class="admin-quick-grid">
+                            <button class="admin-quick-action" type="button" data-quick-view="posts">
+                                <strong>New blog post</strong>
+                                <small>Prepare a draft for Phase 4 publishing.</small>
+                            </button>
+                            <button class="admin-quick-action" type="button" data-quick-view="projects">
+                                <strong>New portfolio project</strong>
+                                <small>Add software and development work.</small>
+                            </button>
+                            <button class="admin-quick-action" type="button" data-quick-view="youtube">
+                                <strong>New YouTube entry</strong>
+                                <small>Store an intro video or playlist record.</small>
+                            </button>
+                            <button class="admin-quick-action" type="button" data-quick-view="books">
+                                <strong>New book</strong>
+                                <small>Add or update a writing project.</small>
+                            </button>
+                        </div>
+                    </section>
+
+                    <section class="admin-panel">
+                        <div class="admin-panel-header">
+                            <div>
+                                <h3>Phase 3 status</h3>
+                                <p>The control layer is now connected to Firestore.</p>
+                            </div>
+                        </div>
+                        <div class="admin-note">
+                            Admin content records created here are real Firestore documents. The public Blog, Portfolio and YouTube pages will consume these records in their dedicated phases.
+                        </div>
+                        <div id="overviewActivity" class="admin-record-list">
+                            <div class="admin-empty">Create your first managed content item and it will appear in the collection list.</div>
+                        </div>
+                    </section>
+                </div>
+            </section>
+
+            <section id="view-posts" class="admin-view"></section>
+            <section id="view-projects" class="admin-view"></section>
+            <section id="view-youtube" class="admin-view"></section>
+            <section id="view-books" class="admin-view"></section>
+            <section id="view-travel" class="admin-view"></section>
+
+            <section id="view-users" class="admin-view">
+                <div class="admin-page-header">
+                    <div>
+                        <span class="eyebrow">Community</span>
+                        <h1>User management</h1>
+                        <p>View JAE HQ profiles and manage member/admin roles.</p>
+                    </div>
+                </div>
+                <div class="admin-note">
+                    Changing a user's role affects their JAE HQ access. Admin accounts can enter this studio and manage protected content.
+                </div>
+                <section class="admin-list-panel">
+                    <div class="admin-toolbar">
+                        <input id="userSearch" class="search-field" type="search" placeholder="Search users by username or email...">
+                    </div>
+                    <div class="admin-table-wrap">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>User</th>
+                                    <th>Email</th>
+                                    <th>Membership</th>
+                                    <th>Role</th>
+                                </tr>
+                            </thead>
+                            <tbody id="userTableBody"></tbody>
+                        </table>
+                    </div>
+                </section>
+            </section>
+
+            <section id="view-comments" class="admin-view">
+                <div class="admin-page-header">
+                    <div>
+                        <span class="eyebrow">Moderation</span>
+                        <h1>Comments</h1>
+                        <p>Review and remove community comments once the Phase 4 comment system begins writing to Firestore.</p>
+                    </div>
+                </div>
+                <section class="admin-list-panel">
+                    <div class="admin-toolbar">
+                        <input id="commentSearch" class="search-field" type="search" placeholder="Search comments...">
+                    </div>
+                    <div id="commentList" class="admin-record-list"></div>
+                </section>
+            </section>
+        </main>
+    </div>
+
+    <div id="confirmModal" class="admin-modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="confirmTitle">
+        <div class="admin-modal">
+            <h3 id="confirmTitle">Delete item?</h3>
+            <p id="confirmText">This action cannot be undone.</p>
+            <div class="button-row">
+                <button id="confirmCancel" class="button secondary" type="button">Cancel</button>
+                <button id="confirmDelete" class="button" type="button">Delete</button>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="../js/admin.js"></script>
+</body>
+</html>
