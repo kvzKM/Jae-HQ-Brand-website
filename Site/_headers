@@ -1,15 +1,16 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://katiejae.iamkatieakaicy.workers.dev/</loc></url>
-  <url><loc>https://katiejae.iamkatieakaicy.workers.dev/portfolio.html</loc></url>
-  <url><loc>https://katiejae.iamkatieakaicy.workers.dev/blog.html</loc></url>
-  <url><loc>https://katiejae.iamkatieakaicy.workers.dev/youtube.html</loc></url>
-  <url><loc>https://katiejae.iamkatieakaicy.workers.dev/books.html</loc></url>
-  <url><loc>https://katiejae.iamkatieakaicy.workers.dev/travel.html</loc></url>
-  <url><loc>https://katiejae.iamkatieakaicy.workers.dev/social.html</loc></url>
-
-<url>
-  <loc>https://katiejae.iamkatieakaicy.workers.dev/project.html</loc>
-</url>
-  <url><loc>https://katiejae.iamkatieakaicy.workers.dev/about.html</loc></url>
-</urlset>
+import { db } from "./firebase.js";
+import { YOUTUBE_API_KEY } from "./youtube-config.js";
+import { collection,getDocs,query,where } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+const state={entries:[],playlists:[],search:""};
+const feature=document.getElementById("youtubeFeature"),grid=document.getElementById("playlistGrid"),search=document.getElementById("playlistSearch"),apiStatus=document.getElementById("youtubeApiStatus"),viewer=document.getElementById("playlistViewer"),viewerFrame=document.getElementById("playlistViewerFrame"),viewerTitle=document.getElementById("playlistViewerTitle"),viewerDescription=document.getElementById("playlistViewerDescription");
+const clean=v=>String(v??"").trim();
+const esc=v=>clean(v).replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;").replaceAll('"',"&quot;").replaceAll("'","&#039;");
+function safe(v){try{const u=new URL(clean(v),location.origin);return ["http:","https:"].includes(u.protocol)?u.href:""}catch{return ""}}
+function renderFeature(){const intro=state.entries.find(e=>e.type==="intro"&&e.featured)||state.entries.find(e=>e.type==="intro");if(!intro||!clean(intro.videoId)){feature.innerHTML='<div class="youtube-feature-player"><div class="playlist-placeholder">▶</div></div><div class="youtube-feature-copy"><span class="eyebrow">Featured introduction</span><h2>The next video starts here.</h2><p>Add a published YouTube entry with type intro and a video ID in Admin Studio.</p></div>';return}feature.innerHTML=`<div class="youtube-feature-player"><iframe src="https://www.youtube.com/embed/${encodeURIComponent(intro.videoId)}?playsinline=1" title="${esc(intro.title)}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div><div class="youtube-feature-copy"><span class="eyebrow">Featured introduction</span><h2>${esc(intro.title)}</h2><p>${esc(intro.description||"")}</p></div>`}
+async function enrich(items){const key=clean(YOUTUBE_API_KEY),ids=items.map(i=>clean(i.playlistId)).filter(Boolean);if(!key||!ids.length){apiStatus.textContent=key?"Playlist archive loaded from JAE HQ.":"JAE HQ playlist data loaded. YouTube API enrichment is optional.";return items}try{const params=new URLSearchParams({part:"snippet,contentDetails",id:ids.slice(0,50).join(","),key});const res=await fetch(`https://www.googleapis.com/youtube/v3/playlists?${params}`);if(!res.ok)throw new Error(`YouTube API ${res.status}`);const data=await res.json(),map=new Map((data.items||[]).map(i=>[i.id,i]));apiStatus.textContent="Playlist details refreshed from YouTube.";return items.map(p=>{const i=map.get(p.playlistId);return i?{...p,youtubeTitle:i.snippet?.title||"",youtubeDescription:i.snippet?.description||"",youtubeThumbnail:i.snippet?.thumbnails?.maxres?.url||i.snippet?.thumbnails?.high?.url||i.snippet?.thumbnails?.medium?.url||"",itemCount:i.contentDetails?.itemCount??null}:p})}catch(e){console.warn(e);apiStatus.textContent="Playlist archive loaded; live YouTube metadata is unavailable.";return items}}
+const title=p=>clean(p.youtubeTitle)||clean(p.title)||"YouTube playlist";const description=p=>clean(p.description)||clean(p.youtubeDescription);const thumbnail=p=>safe(p.youtubeThumbnail)||safe(p.thumbnail);
+function filtered(){const term=state.search.toLowerCase();return state.playlists.filter(p=>!term||`${title(p)} ${description(p)}`.toLowerCase().includes(term))}
+function render(){const items=filtered();if(!items.length){grid.innerHTML='<div class="empty-state" style="grid-column:1/-1">No playlists match that search.</div>';return}grid.innerHTML=items.map(p=>{const th=thumbnail(p),d=description(p);return `<article class="playlist-card"><button type="button" data-id="${esc(p.id)}" aria-label="Open ${esc(title(p))} playlist">${th?`<img class="playlist-thumb" src="${esc(th)}" alt="" loading="lazy">`:'<div class="playlist-placeholder">▶</div>'}<div class="playlist-card-body"><div class="meta">YouTube playlist</div><h3>${esc(title(p))}</h3><p>${esc(d.slice(0,180))}${d.length>180?"…":""}</p>${p.itemCount!=null?`<span class="playlist-count">${esc(p.itemCount)} videos</span>`:""}</div></button></article>`}).join("");grid.querySelectorAll("[data-id]").forEach(b=>b.addEventListener("click",()=>{const p=state.playlists.find(i=>i.id===b.dataset.id);if(p)openPlaylist(p)}))}
+function openPlaylist(p){if(!clean(p.playlistId))return;viewerFrame.innerHTML=`<iframe src="https://www.youtube.com/embed/videoseries?list=${encodeURIComponent(p.playlistId)}&playsinline=1" title="${esc(title(p))}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`;viewerTitle.textContent=title(p);viewerDescription.textContent=description(p);viewer.classList.remove("hidden");viewer.scrollIntoView({behavior:"smooth",block:"start"})}
+async function load(){try{const snap=await getDocs(query(collection(db,"youtube"),where("status","==","published")));state.entries=snap.docs.map(d=>({id:d.id,...d.data()}));renderFeature();state.playlists=await enrich(state.entries.filter(e=>e.type==="playlist"&&clean(e.playlistId)));render()}catch(e){console.error(e);apiStatus.textContent="The playlist archive could not be loaded.";grid.innerHTML='<div class="empty-state" style="grid-column:1/-1">YouTube content is temporarily unavailable.</div>'}}
+search?.addEventListener("input",()=>{state.search=clean(search.value);render()});load();
