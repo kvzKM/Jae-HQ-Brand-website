@@ -1,5 +1,0 @@
-User-agent: *
-Allow: /
-Disallow: /admin/
-
-Sitemap: https://katiejae.iamkatieakaicy.workers.dev/sitemap.xml
