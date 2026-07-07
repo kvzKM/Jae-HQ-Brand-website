@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Read published stories, thoughts, lessons and creative writing from Katie at JAE HQ.">
+    <title>Blog | JAE HQ</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="blog">
+    <div id="siteNavigation"></div>
+
+    <main class="site-main">
+        <header class="page-hero">
+            <span class="eyebrow">The blog</span>
+            <h1>Thoughts with a little more <span class="gradient-text">room to breathe.</span></h1>
+            <p>Life, creativity, lessons and everything that does not fit neatly into one box.</p>
+        </header>
+
+        <section class="section">
+            <div class="blog-controls">
+                <input id="blogSearch" class="search-field" type="search" placeholder="Search published posts..." autocomplete="off">
+                <div id="blogFilters" class="blog-filter-row" aria-label="Filter blog posts by tag"></div>
+            </div>
+
+            <div id="blogGrid" class="blog-grid" aria-live="polite">
+                <div class="blog-loading">Loading published stories from JAE HQ...</div>
+            </div>
+        </section>
+    </main>
+
+    <div id="siteFooter"></div>
+    <script type="module" src="js/navbar.js"></script>
+    <script type="module" src="js/blog.js"></script>
+</body>
+</html>
